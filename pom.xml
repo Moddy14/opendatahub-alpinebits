@@ -518,7 +518,7 @@ SPDX-License-Identifier: CC0-1.0
                             <configuration>
                                 <rules>
                                     <requireJavaVersion>
-                                        <version>[1.8,)</version>
+                                        <version>[11,)</version>
                                     </requireJavaVersion>
                                     <requireMavenVersion>
                                         <version>[3.2.1,)</version>
