@@ -54,7 +54,7 @@ SPDX-License-Identifier: CC0-1.0
         <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
         <checkstyle-maven.version>3.1.1</checkstyle-maven.version>
         <puppycrawl-checkstyle.version>8.29</puppycrawl-checkstyle.version>
         <maven-pmd-plugin.version>3.10.0</maven-pmd-plugin.version>
@@ -205,6 +205,8 @@ SPDX-License-Identifier: CC0-1.0
                             </execution>
                         </executions>
                         <configuration>
+                            <doclint>none</doclint>
+                            <failOnError>false</failOnError>
                             <sourceFileExcludes>
                                 <!--Exclude tests-->
                                 <exclude>**/**Test.java</exclude>
@@ -725,6 +727,11 @@ SPDX-License-Identifier: CC0-1.0
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <!-- Disable doclint for JAXB generated code (Java 11 compatibility) -->
+                        <doclint>none</doclint>
+                        <failOnError>false</failOnError>
+                    </configuration>
                 </plugin>
 
                 <!-- Generate sources jar -->
