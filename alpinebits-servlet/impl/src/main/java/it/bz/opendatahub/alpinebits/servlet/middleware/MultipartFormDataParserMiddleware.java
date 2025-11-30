@@ -22,12 +22,12 @@ import it.bz.opendatahub.alpinebits.servlet.UndefinedActionException;
 import org.apache.commons.fileupload2.core.DiskFileItem;
 import org.apache.commons.fileupload2.core.DiskFileItemFactory;
 import org.apache.commons.fileupload2.core.FileItem;
-import org.apache.commons.fileupload2.javax.JavaxServletFileUpload;
+import org.apache.commons.fileupload2.jakarta.JakartaServletFileUpload;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -73,7 +73,7 @@ public class MultipartFormDataParserMiddleware implements Middleware {
     }
 
     private void checkIsMultipartOrThrow(HttpServletRequest request) {
-        boolean isMultipart = JavaxServletFileUpload.isMultipartContent(request);
+        boolean isMultipart = JakartaServletFileUpload.isMultipartContent(request);
         if (!isMultipart) {
             String contentType = request.getContentType();
             throw new InvalidRequestContentTypeException("Expecting content-type: multipart/form-data. Got: " + contentType);
@@ -84,7 +84,7 @@ public class MultipartFormDataParserMiddleware implements Middleware {
         LOG.debug("Parsing multipart/form-data");
 
         DiskFileItemFactory factory = DiskFileItemFactory.builder().get();
-        JavaxServletFileUpload<DiskFileItem, DiskFileItemFactory> upload = new JavaxServletFileUpload<>(factory);
+        JakartaServletFileUpload<DiskFileItem, DiskFileItemFactory> upload = new JakartaServletFileUpload<>(factory);
 
         String abAction = null;
         InputStream abRequest = null;

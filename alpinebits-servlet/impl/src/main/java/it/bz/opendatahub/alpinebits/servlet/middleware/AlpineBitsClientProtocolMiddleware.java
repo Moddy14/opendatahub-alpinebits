@@ -20,7 +20,7 @@ import it.bz.opendatahub.alpinebits.servlet.ServletContextKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * This middleware extracts the value of the <code>X-AlpineBits-ClientProtocolVersion</code> header

@@ -19,7 +19,7 @@ import it.bz.opendatahub.alpinebits.servlet.ServletContextKey;
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;

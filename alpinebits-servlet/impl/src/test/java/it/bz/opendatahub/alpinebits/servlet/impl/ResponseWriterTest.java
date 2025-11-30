@@ -14,7 +14,7 @@ import it.bz.opendatahub.alpinebits.common.constants.HttpContentTypeHeaderValues
 import it.bz.opendatahub.alpinebits.servlet.impl.utils.ServletOutputStreamBuilder;
 import org.testng.annotations.Test;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.StringWriter;
 

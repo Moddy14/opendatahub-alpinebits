@@ -21,7 +21,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.net.URL;
 
 import static io.restassured.RestAssured.given;

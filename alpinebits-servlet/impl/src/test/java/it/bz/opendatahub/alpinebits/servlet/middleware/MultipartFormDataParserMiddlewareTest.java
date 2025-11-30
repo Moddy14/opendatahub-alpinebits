@@ -24,7 +24,7 @@ import org.apache.commons.io.IOUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.InputStream;
 
 import static org.mockito.Mockito.mock;

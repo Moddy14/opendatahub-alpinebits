@@ -40,12 +40,20 @@ SPDX-License-Identifier: CC0-1.0
     </modules>
 
     <properties>
+        <!-- Java Version -->
+        <java.version>11</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+
         <slf4j.version>2.0.13</slf4j.version>
 
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <!-- Maven Plugins -->
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
         <checkstyle-maven.version>3.1.1</checkstyle-maven.version>
         <puppycrawl-checkstyle.version>8.29</puppycrawl-checkstyle.version>
@@ -58,16 +66,23 @@ SPDX-License-Identifier: CC0-1.0
         <gitflow-maven-plugin.version>1.10.0</gitflow-maven-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 
-        <servlet.version>3.1.0</servlet.version>
-        <mapstruct.version>1.2.0.Final</mapstruct.version>
+        <!-- JAXB for Java 11+ (javax namespace) -->
+        <jaxb-api.version>2.3.3</jaxb-api.version>
+        <jaxb-runtime.version>2.3.9</jaxb-runtime.version>
+
+        <!-- Dependencies -->
+        <servlet.version>6.0.0</servlet.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <commons-io.version>2.20.0</commons-io.version>
         <commons-codec.version>1.19.0</commons-codec.version>
         <jackson.version>2.17.1</jackson.version>
 
+        <!-- Test Dependencies -->
         <testng.version>7.5.1</testng.version>
-        <mockito.version>2.22.0</mockito.version>
-        <arquillian.version>1.8.0.Final</arquillian.version>
-        <tomcat-embedded.version>9.0.109</tomcat-embedded.version>
+        <mockito.version>4.11.0</mockito.version>
+        <byte-buddy.version>1.14.12</byte-buddy.version>
+        <arquillian.version>1.10.0.Final</arquillian.version>
+        <tomcat-embedded.version>10.1.28</tomcat-embedded.version>
         <rest-assured.version>5.5.6</rest-assured.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -105,7 +120,7 @@ SPDX-License-Identifier: CC0-1.0
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
-                    <artifactId>arquillian-tomcat-embedded-8</artifactId>
+                    <artifactId>arquillian-tomcat-embedded-10</artifactId>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.tomcat.embed</groupId>
@@ -349,14 +364,14 @@ SPDX-License-Identifier: CC0-1.0
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
                 <version>${servlet.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-jdk8</artifactId>
+                <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
 
@@ -380,6 +395,24 @@ SPDX-License-Identifier: CC0-1.0
                 <version>${commons-codec.version}</version>
             </dependency>
 
+            <!-- JAXB for Java 11+ (javax namespace) -->
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jaxb-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${jaxb-runtime.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.activation</groupId>
+                <artifactId>jakarta.activation-api</artifactId>
+                <version>1.2.2</version>
+            </dependency>
+
             <!-- Test dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -397,6 +430,12 @@ SPDX-License-Identifier: CC0-1.0
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+                <version>${byte-buddy.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -421,20 +460,20 @@ SPDX-License-Identifier: CC0-1.0
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
-                <artifactId>arquillian-tomcat-embedded-8</artifactId>
-                <version>1.1.0.Final</version>
+                <artifactId>arquillian-tomcat-embedded-10</artifactId>
+                <version>1.2.3.Final</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
-                <version>${tomcat-embedded.version}</version>
+                <version>10.1.28</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-jasper</artifactId>
-                <version>${tomcat-embedded.version}</version>
+                <version>10.1.28</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
@@ -449,8 +488,7 @@ SPDX-License-Identifier: CC0-1.0
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <release>${java.version}</release>
                         <annotationProcessorPaths>
                             <path>
                                 <groupId>org.mapstruct</groupId>
@@ -542,6 +580,8 @@ SPDX-License-Identifier: CC0-1.0
                                 https://issues.apache.org/jira/browse/SUREFIRE-1588
                         -->
                         <useSystemClassLoader>false</useSystemClassLoader>
+                        <useModulePath>false</useModulePath>
+                        <argLine>-Dfile.encoding=UTF-8 --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED</argLine>
                     </configuration>
                 </plugin>
 
@@ -550,6 +590,10 @@ SPDX-License-Identifier: CC0-1.0
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${maven-failsafe-plugin.version}</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                        <argLine>-Dfile.encoding=UTF-8 --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.factory=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.visitor=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.tree=ALL-UNNAMED --add-opens java.base/sun.reflect.generics.repository=ALL-UNNAMED</argLine>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>integration-test</id>
