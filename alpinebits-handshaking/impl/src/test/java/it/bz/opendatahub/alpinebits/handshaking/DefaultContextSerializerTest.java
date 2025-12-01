@@ -77,7 +77,7 @@ public class DefaultContextSerializerTest {
 //        otaPingRS.setWarnings(warnings);
         new DefaultContextSerializer(AlpineBitsVersion.V_2018_10).toContext(ctx, otaPingRS);
 
-        String result = responseStream.toString(StandardCharsets.UTF_8.name());
+        String result = responseStream.toString(StandardCharsets.UTF_8);
 
         assertTrue(result.length() > 0);
     }

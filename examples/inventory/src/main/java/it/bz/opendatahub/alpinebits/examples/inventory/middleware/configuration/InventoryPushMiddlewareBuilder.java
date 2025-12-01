@@ -14,7 +14,7 @@ import it.bz.opendatahub.alpinebits.common.utils.middleware.ComposingMiddlewareB
 import it.bz.opendatahub.alpinebits.examples.inventory.middleware.InventoryPushMiddleware;
 import it.bz.opendatahub.alpinebits.middleware.Middleware;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import java.util.Arrays;
 
 /**

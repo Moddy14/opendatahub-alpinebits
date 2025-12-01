@@ -12,8 +12,8 @@ package it.bz.opendatahub.alpinebits.db;
 
 import org.testng.annotations.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 import static org.testng.Assert.*;
 

@@ -17,9 +17,9 @@ import it.bz.opendatahub.alpinebits.db.PersistenceContextKey;
 import it.bz.opendatahub.alpinebits.db.entity.TestUserEntity;
 import org.testng.annotations.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 
 import static org.testng.Assert.*;
 

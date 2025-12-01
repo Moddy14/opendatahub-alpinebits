@@ -63,7 +63,7 @@ public class HousekeepingGetVersionMiddlewareTest {
         routingMiddleware.handleContext(ctx, null);
 
         ByteArrayOutputStream responseStream = (ByteArrayOutputStream)ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_STREAM);
-        String resultVersion = responseStream.toString(StandardCharsets.UTF_8.name()).substring(3);
+        String resultVersion = responseStream.toString(StandardCharsets.UTF_8).substring(3);
 
         assertEquals(resultVersion, version);
         assertEquals(ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT), HttpContentTypeHeaderValues.TEXT_PLAIN);
@@ -83,7 +83,7 @@ public class HousekeepingGetVersionMiddlewareTest {
         routingMiddleware.handleContext(ctx, null);
 
         ByteArrayOutputStream responseStream = (ByteArrayOutputStream)ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_STREAM);
-        String resultVersion = responseStream.toString(StandardCharsets.UTF_8.name()).substring(3);
+        String resultVersion = responseStream.toString(StandardCharsets.UTF_8).substring(3);
 
         assertEquals(resultVersion, version);
         assertEquals(ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT), HttpContentTypeHeaderValues.TEXT_PLAIN);

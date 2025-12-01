@@ -20,7 +20,7 @@ import it.bz.opendatahub.alpinebits.xml.XmlValidationSchemaProvider;
 import it.bz.opendatahub.alpinebits.xml.middleware.XmlRequestMappingMiddleware;
 import it.bz.opendatahub.alpinebits.xml.middleware.XmlResponseMappingMiddleware;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import javax.xml.validation.Schema;
 
 /**

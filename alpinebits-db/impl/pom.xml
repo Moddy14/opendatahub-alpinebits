@@ -12,12 +12,12 @@ SPDX-License-Identifier: CC0-1.0
     <parent>
         <groupId>it.bz.opendatahub.alpinebits</groupId>
         <artifactId>alpinebits-db</artifactId>
-        <version>4.0.1</version>
+        <version>5.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>alpinebits-db-impl</artifactId>
-    <version>4.0.1</version>
+    <version>5.0.0</version>
 
     <name>AlpineBits DB impl</name>
 
@@ -37,7 +37,7 @@ SPDX-License-Identifier: CC0-1.0
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.6.15.Final</version>
+            <version>6.5.2.Final</version>
         </dependency>
 
         <!-- testing -->

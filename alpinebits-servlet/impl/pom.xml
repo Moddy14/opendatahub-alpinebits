@@ -12,17 +12,17 @@ SPDX-License-Identifier: CC0-1.0
     <parent>
         <groupId>it.bz.opendatahub.alpinebits</groupId>
         <artifactId>alpinebits-servlet</artifactId>
-        <version>4.0.1</version>
+        <version>5.0.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>alpinebits-servlet-impl</artifactId>
-    <version>4.0.1</version>
+    <version>5.0.0</version>
 
     <name>AlpineBits servlet impl</name>
 
     <properties>
-        <commons-fileupload.version>2.0.0-M1</commons-fileupload.version>
+        <commons-fileupload.version>2.0.0-M4</commons-fileupload.version>
     </properties>
 
     <dependencies>
@@ -53,16 +53,11 @@ SPDX-License-Identifier: CC0-1.0
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-fileupload2-jakarta</artifactId>
+            <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
             <version>${commons-fileupload.version}</version>
         </dependency>
 
         <!-- testing -->
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>

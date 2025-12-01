@@ -87,8 +87,8 @@ Run the following maven command:
 mvn clean install cargo:run
 ```
 
-This command starts a local Tomcat 8 instance using
-[Cargo](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html) and deploys
+This command starts a local Tomcat 10 instance using
+[Cargo](https://codehaus-cargo.github.io/cargo/Maven3+Plugin.html) and deploys
 the example war file, generated during the installation (see [Installing](#installing)).
 
 The deployment contains an AlpineBits server instance supporting the
@@ -96,7 +96,7 @@ Handshaking action and a simple website to facilitate the communication with
 the server.
 
 After Tomcat started, Open the website at
-[http://localhost:8080/examples-handshaking/index.html](http://localhost:8080/examples-handshaking/index.html).
+[http://localhost:8081/examples-handshaking/index.html](http://localhost:8081/examples-handshaking/index.html).
 
 The website provides a set of links and an output area. If you click on any of
 the links, the website will issue a request against the deployed AlpineBits
@@ -120,8 +120,8 @@ Run the following maven command:
 mvn clean install cargo:run
 ```
 
-This command starts a local Tomcat 8 instance using
-[Cargo](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html) and deploys
+This command starts a local Tomcat 10 instance using
+[Cargo](https://codehaus-cargo.github.io/cargo/Maven3+Plugin.html) and deploys
 the example war file, generated during the installation (see [Installing](#installing)).
 
 The deployment contains an AlpineBits server instance supporting the
@@ -155,8 +155,8 @@ Run the following maven command:
 mvn clean install cargo:run
 ```
 
-This command starts a local Tomcat 8 instance using
-[Cargo](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html) and deploys
+This command starts a local Tomcat 10 instance using
+[Cargo](https://codehaus-cargo.github.io/cargo/Maven3+Plugin.html) and deploys
 the example war file, generated during the installation (see [Installing](#installing)).
 
 The deployment contains an AlpineBits server instance supporting the
@@ -185,8 +185,8 @@ Run the following maven command:
 mvn clean install cargo:run
 ```
 
-This command starts a local Tomcat 8 instance using
-[Cargo](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html) and deploys
+This command starts a local Tomcat 10 instance using
+[Cargo](https://codehaus-cargo.github.io/cargo/Maven3+Plugin.html) and deploys
 the example war file, generated during the installation (see [Installing](#installing)).
 
 The deployment contains an AlpineBits server instance supporting the

@@ -33,7 +33,7 @@ import it.bz.opendatahub.alpinebits.xml.schema.ota.PoliciesType.Policy.TaxPolici
 import it.bz.opendatahub.alpinebits.xml.schema.ota.PoliciesType.Policy.TaxPolicies.TaxPolicy;
 import org.testng.annotations.Test;
 
-import javax.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 import java.math.BigDecimal;
 

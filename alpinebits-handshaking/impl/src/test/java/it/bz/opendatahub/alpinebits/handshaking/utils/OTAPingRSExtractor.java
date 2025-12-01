@@ -24,17 +24,6 @@ public final class OTAPingRSExtractor {
         // Empty
     }
 
-    public static Optional<String> extractEchoData(OTAPingRS otaPingRs) {
-        // Extract echo data from otaPingRs
-        Optional<String> echoData = otaPingRs.getSuccessesAndEchoDatasAndWarnings().stream()
-                .filter(o -> o instanceof String)
-                .map(o -> Optional.of((String) o))
-                .findAny()
-                .orElseThrow(() -> new RuntimeException("Echo data expected but no echo data found"));
-
-        return echoData;
-    }
-
     public static Optional<String> extractWarning(OTAPingRS otaPingRs) {
         // Extract warning from otaPingRs
         Optional<WarningsType> otaPingRsWarnings = otaPingRs.getSuccessesAndEchoDatasAndWarnings().stream()
