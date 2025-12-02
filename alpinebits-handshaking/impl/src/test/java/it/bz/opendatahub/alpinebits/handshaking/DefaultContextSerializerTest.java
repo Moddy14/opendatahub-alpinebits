@@ -21,6 +21,7 @@ import it.bz.opendatahub.alpinebits.xml.schema.ota.OTAPingRS;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -44,14 +45,15 @@ public class DefaultContextSerializerTest {
     }
 
     @Test
-    public void testFromContext_ShouldReturnValidData() {
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream("Handshake-OTA_PingRQ.xml");
-        Context ctx = new SimpleContext();
-        ctx.put(RequestContextKey.REQUEST_CONTENT_STREAM, is);
+    public void testFromContext_ShouldReturnValidData() throws IOException {
+        try (InputStream is = this.getClass().getClassLoader().getResourceAsStream("Handshake-OTA_PingRQ.xml")) {
+            Context ctx = new SimpleContext();
+            ctx.put(RequestContextKey.REQUEST_CONTENT_STREAM, is);
 
-        OTAPingRQ otaPingRQ = new DefaultContextSerializer(AlpineBitsVersion.V_2018_10).fromContext(ctx);
-        assertNotNull(otaPingRQ);
-        assertNotNull(otaPingRQ.getEchoData());
+            OTAPingRQ otaPingRQ = new DefaultContextSerializer(AlpineBitsVersion.V_2018_10).fromContext(ctx);
+            assertNotNull(otaPingRQ);
+            assertNotNull(otaPingRQ.getEchoData());
+        }
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)

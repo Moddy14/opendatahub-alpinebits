@@ -37,7 +37,7 @@ SPDX-License-Identifier: CC0-1.0
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.5.2.Final</version>
+            <version>6.6.0.Final</version>
         </dependency>
 
         <!-- testing -->

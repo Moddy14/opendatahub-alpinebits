@@ -203,8 +203,8 @@ public class HandshakingMiddlewareTest {
         assertTrue(otaPingRsWarnings.isPresent());
 
         WarningsType wt = otaPingRsWarnings.get();
-        assertEquals(wt.getWarnings().size(), 1);
-        assertEquals(wt.getWarnings().get(0).getValue(), warningContent);
+        assertEquals(1, wt.getWarnings().size());
+        assertEquals(warningContent, wt.getWarnings().get(0).getValue());
     }
 
 }

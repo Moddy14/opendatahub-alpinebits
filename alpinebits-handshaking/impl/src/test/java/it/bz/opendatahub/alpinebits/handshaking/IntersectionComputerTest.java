@@ -57,16 +57,16 @@ public class IntersectionComputerTest {
         HandshakingData hd2 = getDefaultHandshakingData();
         HandshakingData result = IntersectionComputer.intersectHandshakingData(hd1, hd2);
 
-        assertEquals(result.getVersions().size(), 1);
+        assertEquals(1, result.getVersions().size());
         result.getVersions().forEach(version -> {
-            assertEquals(version.getVersion(), DEFAULT_VERSION);
+            assertEquals(DEFAULT_VERSION, version.getVersion());
 
-            assertEquals(version.getActions().size(), 1);
+            assertEquals(1, version.getActions().size());
             version.getActions().forEach(action -> {
-                assertEquals(action.getAction(), DEFAULT_ACTION);
+                assertEquals(DEFAULT_ACTION, action.getAction());
 
-                assertEquals(action.getSupports().size(), 1);
-                action.getSupports().forEach(capability -> assertEquals(capability, DEFAULT_CAPABILITY));
+                assertEquals(1, action.getSupports().size());
+                action.getSupports().forEach(capability -> assertEquals(DEFAULT_CAPABILITY, capability));
             });
         });
     }
@@ -130,15 +130,15 @@ public class IntersectionComputerTest {
         Set<SupportedVersion> version1 = getSupportedVersions(DEFAULT_VERSION, action1);
         Set<SupportedVersion> version2 = getSupportedVersions(DEFAULT_VERSION, action2);
         Set<SupportedVersion> result = IntersectionComputer.intersectVersions(version1, version2);
-        assertEquals(result.size(), 1);
+        assertEquals(1, result.size());
         result.forEach(version -> {
-            assertEquals(version.getVersion(), DEFAULT_VERSION);
+            assertEquals(DEFAULT_VERSION, version.getVersion());
 
             Set<SupportedAction> actions = version.getActions();
-            assertEquals(actions.size(), 1);
+            assertEquals(1, actions.size());
             actions.forEach(action -> {
-                assertEquals(action.getAction(), DEFAULT_ACTION);
-                assertEquals(action.getSupports(), Collections.singleton(s2));
+                assertEquals(DEFAULT_ACTION, action.getAction());
+                assertEquals(Collections.singleton(s2), action.getSupports());
             });
         });
     }
@@ -164,9 +164,9 @@ public class IntersectionComputerTest {
         Set<SupportedVersion> version1 = getSupportedVersions(AlpineBitsVersion.V_2017_10, action1);
         Set<SupportedVersion> version2 = getSupportedVersions(AlpineBitsVersion.V_2017_10, action2);
         Set<SupportedVersion> result = IntersectionComputer.intersectVersions(version1, version2);
-        assertEquals(result.size(), 1);
+        assertEquals(1, result.size());
         result.forEach(version -> {
-            assertEquals(version.getVersion(), AlpineBitsVersion.V_2017_10);
+            assertEquals(AlpineBitsVersion.V_2017_10, version.getVersion());
             assertNull(version.getActions());
         });
     }
@@ -227,10 +227,10 @@ public class IntersectionComputerTest {
                 getSupportedAction(DEFAULT_ACTION + 2, cap2)
         ));
         Set<SupportedAction> result = IntersectionComputer.intersectActions(action1, action2);
-        assertEquals(result.size(), 1);
+        assertEquals(1, result.size());
         result.forEach(action -> {
-            assertEquals(action.getAction(), DEFAULT_ACTION);
-            assertEquals(action.getSupports(), Collections.singleton(s2));
+            assertEquals(DEFAULT_ACTION, action.getAction());
+            assertEquals(Collections.singleton(s2), action.getSupports());
         });
     }
 
@@ -282,8 +282,8 @@ public class IntersectionComputerTest {
         Set<String> cap2 = new HashSet<>(Arrays.asList(s2, s3));
 
         Set<String> result = IntersectionComputer.intersectCapabilities(cap1, cap2);
-        assertEquals(result.size(), 1);
-        assertEquals(result, new HashSet<>(Collections.singletonList(s2)));
+        assertEquals(1, result.size());
+        assertEquals(new HashSet<>(Collections.singletonList(s2)), result);
     }
 
 }

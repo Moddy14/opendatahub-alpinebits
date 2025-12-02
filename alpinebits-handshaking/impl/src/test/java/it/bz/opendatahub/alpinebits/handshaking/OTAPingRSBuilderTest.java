@@ -37,20 +37,20 @@ public class OTAPingRSBuilderTest {
             if (o instanceof String) {
                 echoElementFound = true;
                 String echoData = (String) o;
-                assertEquals(echoData, echoDataRequest);
+                assertEquals(echoDataRequest, echoData);
             } else if (o instanceof SuccessType) {
                 successElementFound = true;
             } else if (o instanceof WarningsType) {
                 warningElementFound = true;
                 WarningsType warningsType = (WarningsType) o;
 
-                assertEquals(warningsType.getWarnings().size(), 1);
+                assertEquals(1, warningsType.getWarnings().size());
 
                 WarningType wt = warningsType.getWarnings().get(0);
-                assertEquals(wt.getValue(), echoDataRequest);
-                assertEquals(wt.getType(), OTAPingRSBuilder.TYPE_11);
-                assertEquals(wt.getStatus(), OTAPingRSBuilder.ALPINEBITS_HANDSHAKE);
-                assertEquals(wt.getValue(), echoDataResponse);
+                assertEquals(echoDataRequest, wt.getValue());
+                assertEquals(OTAPingRSBuilder.TYPE_11, wt.getType());
+                assertEquals(OTAPingRSBuilder.ALPINEBITS_HANDSHAKE, wt.getStatus());
+                assertEquals(echoDataResponse, wt.getValue());
 
             } else {
                 throw new RuntimeException("Found unknown type in list of objects retrieved by OTAPingRS#getSuccessesAndEchoDatasAndWarnings");

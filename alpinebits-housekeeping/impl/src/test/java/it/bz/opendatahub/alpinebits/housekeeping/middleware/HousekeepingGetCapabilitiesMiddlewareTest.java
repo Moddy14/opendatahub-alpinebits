@@ -73,8 +73,8 @@ public class HousekeepingGetCapabilitiesMiddlewareTest {
         String resultCapabilities = responseStream.toString(StandardCharsets.UTF_8).substring(3);
         Collection<String> capabilities = Arrays.asList(resultCapabilities.split(","));
 
-        assertEquals(capabilities, Collections.singletonList(AlpineBitsCapability.GET_CAPABILITIES));
-        assertEquals(ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT), HttpContentTypeHeaderValues.TEXT_PLAIN);
+        assertEquals(Collections.singletonList(AlpineBitsCapability.GET_CAPABILITIES), capabilities);
+        assertEquals(HttpContentTypeHeaderValues.TEXT_PLAIN, ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class HousekeepingGetCapabilitiesMiddlewareTest {
                         customCapability
                 )
         );
-        assertEquals(capabilities, expectedCapabilities);
-        assertEquals(ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT), HttpContentTypeHeaderValues.TEXT_PLAIN);
+        assertEquals(expectedCapabilities, capabilities);
+        assertEquals(HttpContentTypeHeaderValues.TEXT_PLAIN, ctx.getOrThrow(ResponseContextKeys.RESPONSE_CONTENT_TYPE_HINT));
     }
 }

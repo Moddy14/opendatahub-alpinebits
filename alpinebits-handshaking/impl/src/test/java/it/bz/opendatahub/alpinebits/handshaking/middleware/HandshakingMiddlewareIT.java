@@ -118,7 +118,7 @@ public class HandshakingMiddlewareIT extends Arquillian {
 
         HandshakingData handshakingData = om.readValue(warningData.get(), HandshakingData.class);
 
-        assertEquals(handshakingData.getVersions().size(), 2);
+        assertEquals(2, handshakingData.getVersions().size());
 
         // Check 2018-10 version
         SupportedVersion version201810 = handshakingData.getVersions().stream()
@@ -127,7 +127,7 @@ public class HandshakingMiddlewareIT extends Arquillian {
                 .orElseThrow(() -> new RuntimeException("Expected version " + AlpineBitsVersion.V_2018_10 + " not found"));
 
         Set<SupportedAction> actions201810 = version201810.getActions();
-        assertEquals(actions201810.size(), 2);
+        assertEquals(2, actions201810.size());
         actions201810.forEach(action -> {
             if (action.getAction().equals(Action.HANDSHAKING.getName())) {
                 Set<String> capabilities = action.getSupports();
@@ -147,7 +147,7 @@ public class HandshakingMiddlewareIT extends Arquillian {
                 .orElseThrow(() -> new RuntimeException("Expected version " + AlpineBitsVersion.V_2024_10 + " not found"));
 
         Set<SupportedAction> actions202410 = version202410.getActions();
-        assertEquals(actions202410.size(), 1);
+        assertEquals(1, actions202410.size());
         actions202410.forEach(action -> {
             if (action.getAction().equals(Action.HANDSHAKING.getName())) {
                 throw new RuntimeException("As of AlpineBits 2024-10, OTA_Ping action is implicit and should not be part of result actions");

@@ -61,9 +61,9 @@ public class HandshakingDataExtractorTest {
         HandshakingData hd = HandshakingDataExtractor.fromRouter(router);
         Set<SupportedVersion> versions = hd.getVersions();
 
-        assertEquals(versions.size(), 1);
+        assertEquals(1, versions.size());
         versions.forEach(version -> {
-            assertEquals(version.getVersion(), DEFAULT_VERSION);
+            assertEquals(DEFAULT_VERSION, version.getVersion());
 
             Set<SupportedAction> actions = version.getActions();
             assertTrue(actions.isEmpty());
@@ -77,14 +77,14 @@ public class HandshakingDataExtractorTest {
         HandshakingData hd = HandshakingDataExtractor.fromRouter(router);
         Set<SupportedVersion> versions = hd.getVersions();
 
-        assertEquals(versions.size(), 1);
+        assertEquals(1, versions.size());
         versions.forEach(version -> {
-            assertEquals(version.getVersion(), DEFAULT_VERSION);
+            assertEquals(DEFAULT_VERSION, version.getVersion());
 
             Set<SupportedAction> actions = version.getActions();
-            assertEquals(actions.size(), 1);
+            assertEquals(1, actions.size());
             actions.forEach(action -> {
-                assertEquals(action.getAction(), DEFAULT_ACTION.getName());
+                assertEquals(DEFAULT_ACTION.getName(), action.getAction());
 
                 Set<String> capabilities = action.getSupports();
                 assertTrue(capabilities.isEmpty());
@@ -97,17 +97,17 @@ public class HandshakingDataExtractorTest {
         HandshakingData hd = HandshakingDataExtractor.fromRouter(DEFAULT_ROUTER);
         Set<SupportedVersion> versions = hd.getVersions();
 
-        assertEquals(versions.size(), 1);
+        assertEquals(1, versions.size());
         versions.forEach(version -> {
-            assertEquals(version.getVersion(), DEFAULT_VERSION);
+            assertEquals(DEFAULT_VERSION, version.getVersion());
 
             Set<SupportedAction> actions = version.getActions();
-            assertEquals(actions.size(), 1);
+            assertEquals(1, actions.size());
             actions.forEach(action -> {
-                assertEquals(action.getAction(), DEFAULT_ACTION.getName());
+                assertEquals(DEFAULT_ACTION.getName(), action.getAction());
 
                 Set<String> capabilities = action.getSupports();
-                assertEquals(capabilities, Collections.singleton(DEFAULT_CAPABILITY));
+                assertEquals(Collections.singleton(DEFAULT_CAPABILITY), capabilities);
             });
         });
     }
